@@ -5,7 +5,7 @@ body {
 
 form {
   width: 100%;
-  max-width: 600px;
+  max-width: 70%;
   margin: 50px auto;
   background-color: #ffffff;
   padding: 40px;
@@ -19,11 +19,11 @@ form:hover {
 }
 
 h1 {
-  text-align: center;
+  text-align: left;
   font-size: 28px;
   font-weight: 600;
   color: #2c3e50;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 label {
@@ -47,7 +47,7 @@ textarea {
   color: #2c3e50;
   background-color: #f9f9f9;
   box-sizing: border-box;
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
 input[type="text"]:focus,
@@ -56,12 +56,18 @@ select:focus,
 textarea:focus {
   border-color: #3498db;
   background-color: #ffffff;
+  outline: none;
 }
 
 select {
   padding: 12px;
   color: #2c3e50;
   background-color: #f9f9f9;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
 }
 
 input[type="submit"] {
@@ -78,7 +84,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-  background-color: #b14444;
+  background-color: #444;
 }
 
 input[type="submit"]:focus {
@@ -93,6 +99,14 @@ input[type="tel"]:invalid {
   border-color: #e74c3c;
 }
 
+.step {
+  display: none;
+}
+
+.step.active {
+  display: block;
+}
+
 @media (max-width: 768px) {
   form {
     padding: 30px;
@@ -101,11 +115,13 @@ input[type="tel"]:invalid {
 
   h1 {
     font-size: 24px;
+    margin-bottom: 20px;
   }
 
   input[type="text"],
   input[type="number"],
-  select {
+  select,
+  textarea {
     padding: 12px;
     font-size: 14px;
   }

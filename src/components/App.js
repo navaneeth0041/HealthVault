@@ -4,7 +4,8 @@ import Data from "./Data/Data";
 import Form from "./Form/form";
 import Navbar from "./Navbar/Navbar";
 import Option from "./Option/Option";
-import { useEffect } from "react";
+import Sidebar from "./Sidebar/Sidebar";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import {
   loadAccount,
@@ -18,9 +19,15 @@ import config from "../config.json";
 import Alert from "./Alert/Alert";
 function App() {
   const dispatch = useDispatch();
+  const [isSidebarVisible, setSidebarVisible] = useState(false);
+
+  const toggleSidebar = () => {
+    setSidebarVisible(!isSidebarVisible);
+  };
   const loadBlockchainData = async () => {
     const provider = loadProvider(dispatch);
     const chainId = await loadNetwork(provider, dispatch);
+    console.log(chainId)
     const medical_config = config[chainId].medical;
     window.ethereum.on("accountsChanged", () => {
       loadAccount(provider, dispatch);
@@ -39,9 +46,12 @@ function App() {
     <div className="App">
       <div className="navbar">
         <Navbar />
-        <Option />
+        <button className="hamburger-btn" onClick={toggleSidebar}>
+          ☰
+        </button>
+        <Sidebar isVisible={isSidebarVisible} onClose={toggleSidebar} />
         <Routes>
-          <Route path="/" exact element={<Form />} />
+          <Route path="/Form" exact element={<Form />} />
           <Route path="/Data" element={<Data />} />
         </Routes>
         <Alert />

@@ -12,6 +12,7 @@ const Navbar = () => {
   const account = useSelector((state) => state.provider.account);
   const balance = useSelector((state) => state.provider.balance);
   const chainId = useSelector((state) => state.provider.chainId);
+  const [dropdownOpen, setDropdownOpen] = React.useState(false);
   const connectHandler = async (e) => {
     if (!provider) {
       console.error("Provider is not loaded");
@@ -58,21 +59,9 @@ const Navbar = () => {
           <option value="11155111">Sepolia</option>
         </select>
       </div>
-      <div className="nav__balance">
-        {balance ? (
-          <p className="nav__myBalance">
-            <small>My Balance : </small>
-            {Number(balance).toFixed(4)}
-          </p>
-        ) : (
-          <p className="nav__myBalance">
-            <small>My Balance : </small>
-            0ETH
-          </p>
-        )}
+      <div className="navProfileContainer">
         {account ? (
-          <a className="nav__myAccount" href="#">
-            {account.slice(0, 5) + "...." + account.slice(38, 42)}
+          <div className="nav__profile" onClick={() => setDropdownOpen(!dropdownOpen)}>
             <Blockies
               seed={account}
               size={10}
@@ -82,7 +71,13 @@ const Navbar = () => {
               spotColor="#767F92"
               className="identicon"
             />
-          </a>
+            {dropdownOpen && (
+              <div className="nav__dropdown">
+                <p><strong>Account Address:</strong> {account.slice(0, 5)}...{account.slice(-4)}</p>
+                <p><strong>Balance:</strong> {balance ? `${Number(balance).toFixed(4)} ETH` : "0 ETH"}</p>
+              </div>
+            )}
+          </div>
         ) : (
           <button className="nav__balance-box" onClick={connectHandler}>
             Connect
