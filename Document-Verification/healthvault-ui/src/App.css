@@ -1,0 +1,43 @@
+.app-container {
+  background-image: url('https://png.pngtree.com/thumb_back/fw800/background/20240209/pngtree-task-management-business-planning-app-illustration-vector-image_15623958.jpg'); /* Replace with the correct path to your image */
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.content {
+  background: rgba(255, 255, 255, 0.8); /* Optional: add a white transparent background */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.title {
+  font-size: 3rem;
+  color: #333;
+  margin-bottom: 40px;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.button {
+  background-color: #007bff;
+  color: white;
+  padding: 20px 40px;
+  text-decoration: none;
+  font-size: 1.5rem;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
