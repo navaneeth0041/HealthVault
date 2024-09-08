@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Issuer from './Issuer';
 import Verifier from './Verifier';
-import './App.css'; // Import the CSS file for styling
+import './App.css'; 
 
 function App() {
     return (

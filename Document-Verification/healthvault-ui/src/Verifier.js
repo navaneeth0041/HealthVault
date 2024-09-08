@@ -7,12 +7,12 @@ const Verifier = () => {
     const [web3, setWeb3] = useState(null);
     const [contract, setContract] = useState(null);
     const [account, setAccount] = useState('');
-    const [cid, setCID] = useState(''); // Input for CID
-    const [file, setFile] = useState(null); // File to upload
-    const [isValid, setIsValid] = useState(null); // Validity status
-    const [status, setStatus] = useState(''); // Status message
-    const [publicKey, setPublicKey] = useState(''); // Public key from the certificate
-    const [loading, setLoading] = useState(false); // Loading state
+    const [cid, setCID] = useState(''); 
+    const [file, setFile] = useState(null); 
+    const [isValid, setIsValid] = useState(null); 
+    const [status, setStatus] = useState('');
+    const [publicKey, setPublicKey] = useState(''); 
+    const [loading, setLoading] = useState(false); 
 
     useEffect(() => {
         const loadWeb3 = async () => {
@@ -148,7 +148,7 @@ const Verifier = () => {
                             {isValid ? "Verification Successful!" : "Verification Not Successful!"}
                         </Typography>
                         <Typography variant="body2" sx={{ wordBreak: 'break-all', color: 'gray' }}>
-                            {/* Additional content can go here */}
+                            {/*  here */}
                         </Typography>
                     </Box>
                 )}

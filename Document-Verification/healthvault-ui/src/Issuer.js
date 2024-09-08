@@ -53,7 +53,7 @@ const Issuer = () => {
     const [cid, setCid] = useState('');
     const [status, setStatus] = useState('');
     const [loading, setLoading] = useState(false);
-    const [fileSelected, setFileSelected] = useState(true); // New state variable
+    const [fileSelected, setFileSelected] = useState(true); 
 
     useEffect(() => {
         const loadWeb3 = async () => {
@@ -76,13 +76,13 @@ const Issuer = () => {
     const handleFileUpload = (e) => {
         const selectedFile = e.target.files[0];
         setFile(selectedFile);
-        setFileSelected(!!selectedFile); // Set fileSelected based on whether a file is chosen
+        setFileSelected(!!selectedFile); 
     };
 
     const uploadToIPFS = async () => {
         if (!file) {
             setStatus('No file selected.');
-            setFileSelected(false); // Set to false if no file
+            setFileSelected(false); 
             return;
         }
         setLoading(true);
@@ -94,7 +94,7 @@ const Issuer = () => {
                 const added = await ipfs.add(fileBuffer);
                 setCid(added.path);
                 setStatus('File uploaded to IPFS successfully.');
-                setFileSelected(true); // Reset fileSelected if upload is successful
+                setFileSelected(true); 
             };
             reader.readAsArrayBuffer(file);
         } catch (error) {
